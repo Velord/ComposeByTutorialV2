@@ -5,9 +5,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.composebytutorialv2.ui.chapter1.Greeting
 import com.example.composebytutorialv2.ui.theme.ComposeByTutorialV2Theme
 
 class MainActivity : ComponentActivity() {
@@ -19,11 +19,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
@@ -33,3 +28,4 @@ fun DefaultPreview() {
         }
     }
 }
+
