@@ -9,6 +9,15 @@
     <string name="email">Email</string>
     <string name="example">example</string>
     <string name="alert_title">Alert Title</string>
-    <string name="alert_message">Alert Message</string>
     <string name="confirm">Confirm</string>
+    <string name="alert_message">Alert Message</string>
+    <string name="list_message_1">List Message First</string>
+    <string name="list_message_2">List Message Second</string>
+    <string name="list_message_3">List Message Third</string>
+    <string name="first">First</string>
+    <string name="second">Second</string>
+    <string name="third">Third</string>
+    <string name="surface">Surface</string>
+    <string name="scaffold">Scaffold</string>
+    <string name="menu">Menu</string>
 </resources>

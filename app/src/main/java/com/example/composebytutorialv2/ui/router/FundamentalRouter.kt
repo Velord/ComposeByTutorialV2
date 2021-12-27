@@ -8,6 +8,8 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.composebytutorialv2.ui.chapter2.*
+import com.example.composebytutorialv2.ui.chapter3.ScaffoldScreen
+import com.example.composebytutorialv2.ui.chapter3.SurfaceScreen
 
 sealed class Screen {
     object Navigation : Screen()
@@ -16,6 +18,8 @@ sealed class Screen {
     object Buttons : Screen()
     object ProgressIndicator : Screen()
     object AlertDialog : Screen()
+    object Surface : Screen()
+    object Scaffold : Screen()
 }
 
 object JetFundamentalsRouter {
@@ -28,7 +32,7 @@ object JetFundamentalsRouter {
 
 @Preview
 @Composable
-fun JetFundamentalApp() {
+fun JetFundamentalScreen() {
     Surface(color = MaterialTheme.colors.background) {
         Crossfade(targetState = JetFundamentalsRouter.currentScreen) {
             when(it.value) {
@@ -38,6 +42,8 @@ fun JetFundamentalApp() {
                 is Screen.Buttons -> ExploreButtonsScreen()
                 is Screen.ProgressIndicator -> ProgressIndicatorScreen()
                 is Screen.AlertDialog -> MyAlertDialogScreen()
+                is Screen.Surface -> SurfaceScreen()
+                is Screen.Scaffold -> ScaffoldScreen()
             }
         }
     }

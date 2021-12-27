@@ -1,5 +1,6 @@
-package com.example.composebytutorialv2.ui.chapter2
+package com.example.composebytutorialv2.ui.router
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
@@ -15,14 +16,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.composebytutorialv2.R
-import com.example.composebytutorialv2.ui.router.JetFundamentalsRouter
-import com.example.composebytutorialv2.ui.router.Screen
 
 @Preview
 @Composable
 fun NavigationScreen() {
     Surface(
-        color = Color.White,
+        color = Color.Black,
         modifier = Modifier.fillMaxSize()
     ) {
         Column(
@@ -34,6 +33,8 @@ fun NavigationScreen() {
             NavigationButton(text = stringResource(id = R.string.buttons), screen = Screen.Buttons)
             NavigationButton(text = stringResource(id = R.string.progress_indicator), screen = Screen.ProgressIndicator)
             NavigationButton(text = stringResource(id = R.string.alert_dialog), screen = Screen.AlertDialog)
+            NavigationButton(text = stringResource(id = R.string.surface), screen = Screen.Surface)
+            NavigationButton(text = stringResource(id = R.string.scaffold), screen = Screen.Scaffold)
         }
     }
 }
@@ -44,11 +45,12 @@ fun NavigationButton(text: String, screen: Screen) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 16.dp, end = 16.dp, top = 16.dp),
-        shape = RoundedCornerShape(4.dp),
+        shape = RoundedCornerShape(24.dp),
         colors = ButtonDefaults.buttonColors(
             backgroundColor = colorResource(id = R.color.teal_200)
         ),
         onClick = { JetFundamentalsRouter.navigateTo(screen) },
+        border = BorderStroke(2.dp, Color.Red)
     ) {
         Text(text = text, color = Color.White)
     }
