@@ -2,7 +2,9 @@ package com.example.composebytutorialv2.ui.router
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Surface
@@ -21,10 +23,12 @@ import com.example.composebytutorialv2.R
 @Composable
 fun NavigationScreen() {
     Surface(
-        color = Color.Black,
+        color = Color.White,
         modifier = Modifier.fillMaxSize()
     ) {
         Column(
+            modifier = Modifier.verticalScroll(rememberScrollState())
+                .padding(vertical = 32.dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -35,6 +39,9 @@ fun NavigationScreen() {
             NavigationButton(text = stringResource(id = R.string.alert_dialog), screen = Screen.AlertDialog)
             NavigationButton(text = stringResource(id = R.string.surface), screen = Screen.Surface)
             NavigationButton(text = stringResource(id = R.string.scaffold), screen = Screen.Scaffold)
+            NavigationButton(text = stringResource(id = R.string.scrolling), screen = Screen.Scrolling)
+            NavigationButton(text = stringResource(id = R.string.book_list), screen = Screen.BookList)
+            NavigationButton(text = stringResource(id = R.string.grid), screen = Screen.Grid)
         }
     }
 }
@@ -50,8 +57,8 @@ fun NavigationButton(text: String, screen: Screen) {
             backgroundColor = colorResource(id = R.color.teal_200)
         ),
         onClick = { JetFundamentalsRouter.navigateTo(screen) },
-        border = BorderStroke(2.dp, Color.Red)
+        border = BorderStroke(2.dp, Color.Black)
     ) {
-        Text(text = text, color = Color.White)
+        Text(text = text, color = Color.Magenta)
     }
 }

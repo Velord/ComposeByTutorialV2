@@ -1,4 +1,4 @@
-package com.example.composebytutorialv2.ui.chapter3
+package com.example.composebytutorialv2.ui.section1.chapter3
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row

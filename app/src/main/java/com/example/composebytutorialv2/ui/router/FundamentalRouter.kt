@@ -1,15 +1,19 @@
 package com.example.composebytutorialv2.ui.router
 
 import androidx.compose.animation.Crossfade
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.composebytutorialv2.ui.chapter2.*
-import com.example.composebytutorialv2.ui.chapter3.ScaffoldScreen
-import com.example.composebytutorialv2.ui.chapter3.SurfaceScreen
+import com.example.composebytutorialv2.ui.section1.chapter2.*
+import com.example.composebytutorialv2.ui.section1.chapter3.ScaffoldScreen
+import com.example.composebytutorialv2.ui.section1.chapter3.SurfaceScreen
+import com.example.composebytutorialv2.ui.section1.chapter4.BookListScreen
+import com.example.composebytutorialv2.ui.section1.chapter4.ScrollingScreen
+import com.example.composebytutorialv2.ui.section1.chapter4.grid.GridScreen
 
 sealed class Screen {
     object Navigation : Screen()
@@ -20,6 +24,9 @@ sealed class Screen {
     object AlertDialog : Screen()
     object Surface : Screen()
     object Scaffold : Screen()
+    object Scrolling : Screen()
+    object BookList : Screen()
+    object Grid : Screen()
 }
 
 object JetFundamentalsRouter {
@@ -30,6 +37,7 @@ object JetFundamentalsRouter {
     }
 }
 
+@ExperimentalFoundationApi
 @Preview
 @Composable
 fun JetFundamentalScreen() {
@@ -44,6 +52,9 @@ fun JetFundamentalScreen() {
                 is Screen.AlertDialog -> MyAlertDialogScreen()
                 is Screen.Surface -> SurfaceScreen()
                 is Screen.Scaffold -> ScaffoldScreen()
+                is Screen.Scrolling -> ScrollingScreen()
+                is Screen.BookList -> BookListScreen()
+                is Screen.Grid -> GridScreen()
             }
         }
     }
