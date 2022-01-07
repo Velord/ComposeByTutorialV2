@@ -6,7 +6,7 @@ import androidx.lifecycle.Transformations
 import com.example.composebytutorialv2.data.section2.database.DbMapper
 import com.example.composebytutorialv2.data.section2.database.model.ColorDb
 import com.example.composebytutorialv2.data.section2.database.model.NoteDb
-import com.example.composebytutorialv2.data.section2.model.Color
+import com.example.composebytutorialv2.data.section2.model.ColorModel
 import com.example.composebytutorialv2.data.section2.model.Note
 import com.example.composebytutorialv2.ui.section2.data.database.dao.ColorDao
 import com.example.composebytutorialv2.ui.section2.data.database.dao.NoteDao
@@ -24,10 +24,10 @@ interface Repository {
     fun moveNoteToTrash(noteId: Long)
     fun restoreNotesFromTrash(noteIds: List<Long>)
     // colors
-    fun getAllColors(): LiveData<List<Color>>
-    fun getAllColorsSync(): List<Color>
-    fun getColor(id: Long): LiveData<Color>
-    fun getColorSync(id: Long): Color
+    fun getAllColors(): LiveData<List<ColorModel>>
+    fun getAllColorsSync(): List<ColorModel>
+    fun getColor(id: Long): LiveData<ColorModel>
+    fun getColorSync(id: Long): ColorModel
 }
 
 class RepositoryImpl(
@@ -116,15 +116,15 @@ class RepositoryImpl(
         updateNotesLiveData()
     }
 
-    override fun getAllColors(): LiveData<List<Color>> =
+    override fun getAllColors(): LiveData<List<ColorModel>> =
         Transformations.map(colorDao.getAll()) { dbMapper.mapColors(it) }
 
-    override fun getAllColorsSync(): List<Color> = dbMapper.mapColors(colorDao.getAllSync())
+    override fun getAllColorsSync(): List<ColorModel> = dbMapper.mapColors(colorDao.getAllSync())
 
-    override fun getColor(id: Long): LiveData<Color> =
+    override fun getColor(id: Long): LiveData<ColorModel> =
         Transformations.map(colorDao.findById(id)) { dbMapper.mapColor(it) }
 
-    override fun getColorSync(id: Long): Color = dbMapper.mapColor(colorDao.findByIdSync(id))
+    override fun getColorSync(id: Long): ColorModel = dbMapper.mapColor(colorDao.findByIdSync(id))
 
     private fun updateNotesLiveData() {
         notesNotInTrashLiveData.postValue(getAllNotesDependingOnTrashStateSync(false))

@@ -8,5 +8,5 @@ data class Note(
     val content: String = "",
     //null represents that the note can't be checked off
     val isCheckedOff: Boolean? = null,
-    val color: Color = Color.DEFAULT
+    val colorModel: ColorModel = ColorModel.DEFAULT
 )
