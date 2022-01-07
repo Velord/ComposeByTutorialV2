@@ -2,7 +2,7 @@ package com.example.composebytutorialv2.data.section2.database
 
 import com.example.composebytutorialv2.data.section2.database.model.ColorDb
 import com.example.composebytutorialv2.data.section2.database.model.NoteDb
-import com.example.composebytutorialv2.data.section2.model.Color
+import com.example.composebytutorialv2.data.section2.model.ColorModel
 import com.example.composebytutorialv2.data.section2.model.NEW_NOTE_ID
 import com.example.composebytutorialv2.data.section2.model.Note
 
@@ -14,13 +14,13 @@ interface DbMapper {
     ): List<Note>
     fun mapNote(noteDb: NoteDb, colorDb: ColorDb): Note
     //ColorDb -> Color
-    fun mapColors(colorDbs: List<ColorDb>): List<Color>
-    fun mapColor(colorDb: ColorDb): Color
+    fun mapColors(colorDbs: List<ColorDb>): List<ColorModel>
+    fun mapColor(colorDb: ColorDb): ColorModel
     //Note -> NoteDb
     fun mapDbNote(note: Note): NoteDb
     //Color -> ColorDb
-    fun mapDbColors(colors: List<Color>): List<ColorDb>
-    fun mapDbColor(color: Color): ColorDb
+    fun mapDbColors(colorModels: List<ColorModel>): List<ColorDb>
+    fun mapDbColor(colorModel: ColorModel): ColorDb
 }
 
 class DbMapperImpl : DbMapper {
@@ -43,18 +43,18 @@ class DbMapperImpl : DbMapper {
         return with(noteDb) { Note(id, title, content, isCheckedOff, color) }
     }
 
-    override fun mapColors(colorDbs: List<ColorDb>): List<Color> = colorDbs.map { mapColor(it) }
+    override fun mapColors(colorDbs: List<ColorDb>): List<ColorModel> = colorDbs.map { mapColor(it) }
 
-    override fun mapColor(colorDb: ColorDb): Color = with(colorDb) { Color(id, name, hex) }
+    override fun mapColor(colorDb: ColorDb): ColorModel = with(colorDb) { ColorModel(id, name, hex) }
 
     override fun mapDbNote(note: Note): NoteDb = with(note) {
         val canBeCheckedOff = isCheckedOff != null
         val isCheckedOff = isCheckedOff ?: false
         val newId = if (id == NEW_NOTE_ID) NoteDb.DEF_ID else id
-        NoteDb(newId, title, content, canBeCheckedOff, isCheckedOff, color.id, false)
+        NoteDb(newId, title, content, canBeCheckedOff, isCheckedOff, colorModel.id, false)
     }
 
-    override fun mapDbColors(colors: List<Color>): List<ColorDb> = colors.map { mapDbColor(it) }
+    override fun mapDbColors(colorModels: List<ColorModel>): List<ColorDb> = colorModels.map { mapDbColor(it) }
 
-    override fun mapDbColor(color: Color): ColorDb = with(color) { ColorDb(id, hex, name) }
+    override fun mapDbColor(colorModel: ColorModel): ColorDb = with(colorModel) { ColorDb(id, hex, name) }
 }
