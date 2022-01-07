@@ -31,9 +31,14 @@
     <string name="book_image">Book image</string>
     <string name="grid">Grid</string>
     <string name="grid_icon">Grid icon</string>
-
-
-
+    <string name="title">Title</string>
+    <string name="content">Content</string>
+    <string name="drawer_header_icon">Drawer Header Icon</string>
+    <string name="jet_notes">Jet Notes</string>
+    <string name="screen_navigation_button">Screen Navigation Button</string>
+    <string name="notes">Notes</string>
+    <string name="turn_on_dark_theme">Turn on dark theme</string>
+    <string name="trash">Trash</string>
 
 
 

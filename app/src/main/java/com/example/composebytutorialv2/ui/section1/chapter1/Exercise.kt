@@ -1,4 +1,4 @@
-package com.example.composebytutorialv2.ui.section1.chapter1
+package com.example.composebytutorialv2.section1.chapter1
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.clickable

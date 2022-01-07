@@ -1,4 +1,4 @@
-package com.example.composebytutorialv2.ui.section1.chapter2
+package com.example.composebytutorialv2.section1.chapter2
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,9 +17,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.composebytutorialv2.R
-import com.example.composebytutorialv2.ui.router.BackButtonHandler
-import com.example.composebytutorialv2.ui.router.JetFundamentalsRouter
-import com.example.composebytutorialv2.ui.router.Screen
+import com.example.composebytutorialv2.navigation.BackButtonHandler
+import com.example.composebytutorialv2.navigation.Screen
+import com.example.composebytutorialv2.navigation.Section1Router
 
 @Preview
 @Composable
@@ -32,7 +32,7 @@ fun TextFieldScreen() {
     }
 
     BackButtonHandler {
-        JetFundamentalsRouter.navigateTo(Screen.Navigation)
+        Section1Router.navigateTo(Screen.Section1.Navigation)
     }
 }
 

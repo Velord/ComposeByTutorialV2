@@ -1,4 +1,4 @@
-package com.example.composebytutorialv2.ui.router
+package com.example.composebytutorialv2.navigation
 
 import androidx.activity.ComponentActivity
 import androidx.activity.OnBackPressedCallback
