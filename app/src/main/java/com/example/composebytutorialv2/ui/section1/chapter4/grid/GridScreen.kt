@@ -2,7 +2,6 @@ package com.example.composebytutorialv2.ui.section1.chapter4.grid
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -20,9 +19,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.composebytutorialv2.R
-import com.example.composebytutorialv2.ui.router.BackButtonHandler
-import com.example.composebytutorialv2.ui.router.JetFundamentalsRouter
-import com.example.composebytutorialv2.ui.router.Screen
+import com.example.composebytutorialv2.navigation.BackButtonHandler
+import com.example.composebytutorialv2.navigation.Screen
+import com.example.composebytutorialv2.navigation.Section1Router
+import com.example.composebytutorialv2.section1.chapter4.grid.Grid
 import com.google.accompanist.flowlayout.FlowMainAxisAlignment
 import com.google.accompanist.flowlayout.FlowRow
 import com.google.accompanist.flowlayout.SizeMode
@@ -46,7 +46,6 @@ val icons = listOf(
     IconResource(9, R.drawable.baseline_assignment_return_light_blue_400_48dp),
 )
 
-@ExperimentalFoundationApi
 @Preview
 @Composable
 fun GridScreen() {
@@ -96,7 +95,7 @@ fun GridScreen() {
     }
 
     BackButtonHandler {
-        JetFundamentalsRouter.navigateTo(Screen.Navigation)
+        Section1Router.navigateTo(Screen.Section1.Navigation)
     }
 }
 

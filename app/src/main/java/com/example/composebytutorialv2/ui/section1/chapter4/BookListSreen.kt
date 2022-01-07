@@ -1,4 +1,4 @@
-package com.example.composebytutorialv2.ui.section1.chapter4
+package com.example.composebytutorialv2.section1.chapter4
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
@@ -19,9 +19,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.composebytutorialv2.R
-import com.example.composebytutorialv2.ui.router.BackButtonHandler
-import com.example.composebytutorialv2.ui.router.JetFundamentalsRouter
-import com.example.composebytutorialv2.ui.router.Screen
+import com.example.composebytutorialv2.navigation.BackButtonHandler
+import com.example.composebytutorialv2.navigation.Screen
+import com.example.composebytutorialv2.navigation.Section1Router
 
 data class BookCategory(
     val id: Int,
@@ -62,7 +62,7 @@ fun BookListScreen() {
     MyBookList()
     
     BackButtonHandler {
-        JetFundamentalsRouter.navigateTo(Screen.Navigation)
+        Section1Router.navigateTo(Screen.Section1.Navigation)
     }
 }
 

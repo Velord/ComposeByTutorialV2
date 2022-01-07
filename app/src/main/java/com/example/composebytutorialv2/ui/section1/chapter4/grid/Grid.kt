@@ -1,4 +1,4 @@
-package com.example.composebytutorialv2.ui.section1.chapter4.grid
+package com.example.composebytutorialv2.section1.chapter4.grid
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
