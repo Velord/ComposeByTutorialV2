@@ -1,4 +1,4 @@
-package com.example.composebytutorialv2.di.section2
+package com.example.composebytutorialv2.di
 
 import android.content.Context
 import androidx.room.Room
@@ -7,23 +7,33 @@ import com.example.composebytutorialv2.data.section2.database.DbMapperImpl
 import com.example.composebytutorialv2.data.section2.repository.Repository
 import com.example.composebytutorialv2.data.section2.repository.RepositoryImpl
 import com.example.composebytutorialv2.ui.section2.data.database.AppDatabase
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 
-class DependencyInjector(applicationContext: Context) {
+@Module
+@InstallIn(SingletonComponent::class)
+object AppModule {
 
-    val repository: Repository by lazy { provideRepository(database) }
+    @Singleton
+    @Provides
+    fun provideDbMapper(): DbMapper = DbMapperImpl()
 
-    private val database: AppDatabase by lazy { provideDatabase(applicationContext) }
-
-    private val dbMapper: DbMapper = DbMapperImpl()
-
-    private fun provideDatabase(applicationContext: Context): AppDatabase =
+    @Singleton
+    @Provides
+    fun provideDatabase(@ApplicationContext context: Context): AppDatabase =
         Room.databaseBuilder(
-            applicationContext,
+            context,
             AppDatabase::class.java,
             AppDatabase.DATABASE_NAME
         ).build()
 
-    private fun provideRepository(database: AppDatabase): Repository {
+    @Singleton
+    @Provides
+    fun provideRepository(database: AppDatabase, dbMapper: DbMapper): Repository {
         val noteDao = database.noteDao()
         val colorDao = database.colorDao()
 
