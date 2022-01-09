@@ -14,7 +14,7 @@ import com.example.composebytutorialv2.section1.chapter4.BookListScreen
 import com.example.composebytutorialv2.section1.chapter4.ScrollingScreen
 import com.example.composebytutorialv2.ui.section1.chapter1.NavigationScreen
 import com.example.composebytutorialv2.ui.section1.chapter4.grid.GridScreen
-import com.example.composebytutorialv2.ui.section2.chapter5.MainNoteScreen
+import com.example.composebytutorialv2.ui.section2.chapter5.EntryPointNoteScreen
 
 sealed class Screen {
     sealed class Section1 : Screen() {
@@ -77,9 +77,9 @@ fun JetFundamentalScreen(router: MutableState<Screen> = mutableStateOf(Screen.Se
                 }
                 is Screen.Section2 -> {
                     when(it.value) {
-                        is Screen.Section2.MainNote -> MainNoteScreen()
-                        is Screen.Section2.SaveNote -> MainNoteScreen()
-                        is Screen.Section2.Trash -> MainNoteScreen()
+                        is Screen.Section2.MainNote -> EntryPointNoteScreen()
+                        is Screen.Section2.SaveNote -> EntryPointNoteScreen()
+                        is Screen.Section2.Trash -> EntryPointNoteScreen()
                     }
                 }
             }

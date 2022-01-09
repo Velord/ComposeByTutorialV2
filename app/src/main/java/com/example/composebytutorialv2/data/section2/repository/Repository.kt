@@ -1,32 +1,32 @@
 package com.example.composebytutorialv2.data.section2.repository
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
 import com.example.composebytutorialv2.data.section2.database.DbMapper
+import com.example.composebytutorialv2.data.section2.database.dao.ColorDao
+import com.example.composebytutorialv2.data.section2.database.dao.NoteDao
 import com.example.composebytutorialv2.data.section2.database.model.ColorDb
 import com.example.composebytutorialv2.data.section2.database.model.NoteDb
 import com.example.composebytutorialv2.data.section2.model.ColorModel
-import com.example.composebytutorialv2.data.section2.model.Note
-import com.example.composebytutorialv2.ui.section2.data.database.dao.ColorDao
-import com.example.composebytutorialv2.ui.section2.data.database.dao.NoteDao
+import com.example.composebytutorialv2.data.section2.model.NoteModel
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
 interface Repository {
     // notes
-    fun getAllNotesNotInTrash(): LiveData<List<Note>>
-    fun getAllNotesInTrash(): LiveData<List<Note>>
-    fun getNote(id: Long): LiveData<Note>
-    fun insertNote(note: Note)
+    fun getAllNotesFlow(): Flow<List<NoteModel>>
+    fun getAllNotesInTrashFlow(): Flow<List<NoteModel>>
+    fun getNote(id: Long): Flow<NoteModel>
+    fun insertNote(noteModel: NoteModel)
     fun deleteNote(id: Long)
     fun deleteNotes(noteIds: List<Long>)
     fun moveNoteToTrash(noteId: Long)
     fun restoreNotesFromTrash(noteIds: List<Long>)
     // colors
-    fun getAllColors(): LiveData<List<ColorModel>>
+    fun getAllColors(): Flow<List<ColorModel>>
     fun getAllColorsSync(): List<ColorModel>
-    fun getColor(id: Long): LiveData<ColorModel>
+    fun getColor(id: Long): Flow<ColorModel>
     fun getColorSync(id: Long): ColorModel
 }
 
@@ -36,16 +36,16 @@ class RepositoryImpl(
     private val dbMapper: DbMapper
 ) : Repository {
 
-    private val notesNotInTrashLiveData: MutableLiveData<List<Note>> by lazy {
-        MutableLiveData<List<Note>>()
+    private val allNotesFlow: MutableStateFlow<List<NoteModel>> by lazy {
+        MutableStateFlow(emptyList())
     }
 
-    private val notesInTrashLiveData: MutableLiveData<List<Note>> by lazy {
-        MutableLiveData<List<Note>>()
+    private val notesInTrashFlow: MutableStateFlow<List<NoteModel>> by lazy {
+        MutableStateFlow(emptyList())
     }
 
     init {
-        initDatabase(this::updateNotesLiveData)
+        initDatabase(this::updateNotesFlow)
     }
 
     //Populates database with colors if it is empty.
@@ -68,43 +68,44 @@ class RepositoryImpl(
         }
     }
 
-    override fun getAllNotesNotInTrash(): LiveData<List<Note>> = notesNotInTrashLiveData
+    override fun getAllNotesFlow(): Flow<List<NoteModel>> = allNotesFlow
 
-    override fun getAllNotesInTrash(): LiveData<List<Note>> = notesInTrashLiveData
+    override fun getAllNotesInTrashFlow(): Flow<List<NoteModel>> = notesInTrashFlow
 
-    private fun getAllNotesDependingOnTrashStateSync(inTrash: Boolean): List<Note> {
-        val colorDbModels: Map<Long, ColorDb> = colorDao.getAllSync().map { it.id to it }.toMap()
-        val dbNotesNotInTrashes: List<NoteDb> =
-            noteDao.getAllSync().filter { it.isInTrash == inTrash }
-        return dbMapper.mapNotes(dbNotesNotInTrashes, colorDbModels)
+    private fun getAllNotesDependingOnTrashStateSync(inTrash: Boolean): List<NoteModel> {
+        val colorDb: Map<Long, ColorDb> = colorDao.getAllSync().map { it.id to it }.toMap()
+        val notesDbByTrashState: List<NoteDb> = noteDao.getAllSync().filter {
+            it.isInTrash == inTrash
+        }
+        return dbMapper.mapNotes(notesDbByTrashState, colorDb)
     }
 
-    override fun getNote(id: Long): LiveData<Note> =
-        Transformations.map(noteDao.findById(id)) {
+    override fun getNote(id: Long): Flow<NoteModel> =
+        noteDao.findById(id).map {
             val colorDbModel = colorDao.findByIdSync(it.colorId)
             dbMapper.mapNote(it, colorDbModel)
         }
 
-    override fun insertNote(note: Note) {
-        noteDao.insert(dbMapper.mapDbNote(note))
-        updateNotesLiveData()
+    override fun insertNote(noteModel: NoteModel) {
+        noteDao.insert(dbMapper.mapDbNote(noteModel))
+        updateNotesFlow()
     }
 
     override fun deleteNote(id: Long) {
         noteDao.delete(id)
-        updateNotesLiveData()
+        updateNotesFlow()
     }
 
     override fun deleteNotes(noteIds: List<Long>) {
         noteDao.delete(noteIds)
-        updateNotesLiveData()
+        updateNotesFlow()
     }
 
     override fun moveNoteToTrash(noteId: Long) {
         val dbNote = noteDao.findByIdSync(noteId)
         val newDbNote = dbNote.copy(isInTrash = true)
         noteDao.insert(newDbNote)
-        updateNotesLiveData()
+        updateNotesFlow()
     }
 
     override fun restoreNotesFromTrash(noteIds: List<Long>) {
@@ -113,22 +114,21 @@ class RepositoryImpl(
             val newDbNote = it.copy(isInTrash = false)
             noteDao.insert(newDbNote)
         }
-        updateNotesLiveData()
+        updateNotesFlow()
     }
 
-    override fun getAllColors(): LiveData<List<ColorModel>> =
-        Transformations.map(colorDao.getAll()) { dbMapper.mapColors(it) }
+    override fun getAllColors(): Flow<List<ColorModel>> =
+        colorDao.getAll().map { dbMapper.mapColors(it) }
 
     override fun getAllColorsSync(): List<ColorModel> = dbMapper.mapColors(colorDao.getAllSync())
 
-    override fun getColor(id: Long): LiveData<ColorModel> =
-        Transformations.map(colorDao.findById(id)) { dbMapper.mapColor(it) }
+    override fun getColor(id: Long): Flow<ColorModel> =
+        colorDao.findById(id).map { dbMapper.mapColor(it) }
 
     override fun getColorSync(id: Long): ColorModel = dbMapper.mapColor(colorDao.findByIdSync(id))
 
-    private fun updateNotesLiveData() {
-        notesNotInTrashLiveData.postValue(getAllNotesDependingOnTrashStateSync(false))
-        val newNotesInTrashLiveData = getAllNotesDependingOnTrashStateSync(true)
-        notesInTrashLiveData.postValue(newNotesInTrashLiveData)
+    private fun updateNotesFlow() {
+        allNotesFlow.value = getAllNotesDependingOnTrashStateSync(false)
+        notesInTrashFlow.value = getAllNotesDependingOnTrashStateSync(true)
     }
 }

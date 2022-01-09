@@ -4,12 +4,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.runtime.MutableState
-import com.example.composebytutorialv2.navigation.JetFundamentalScreen
-import com.example.composebytutorialv2.navigation.Screen
-import com.example.composebytutorialv2.navigation.Section2Router
-import com.example.composebytutorialv2.ui.section1.main.MainViewModel
+import com.example.composebytutorialv2.ui.section2.chapter7.NoteCollectionScreen
+import com.example.composebytutorialv2.ui.section2.theme.JetNotesTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private val viewModel by viewModels<MainViewModel>()
@@ -17,7 +16,11 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            JetFundamentalScreen(router = Section2Router.currentScreen as MutableState<Screen>)
+            JetNotesTheme {
+                NoteCollectionScreen(viewModel = viewModel)
+            }
+
+            //JetFundamentalScreen(router = Section2Router.currentScreen as MutableState<Screen>)
         }
     }
 }

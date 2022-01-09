@@ -1,11 +1,11 @@
-package com.example.composebytutorialv2.ui.section2.data.database.dao
+package com.example.composebytutorialv2.data.section2.database.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.composebytutorialv2.data.section2.database.model.NoteDb
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface NoteDao {
@@ -17,7 +17,7 @@ interface NoteDao {
     fun getNotesByIdsSync(noteIds: List<Long>): List<NoteDb>
 
     @Query("SELECT * FROM NoteDb WHERE id LIKE :id")
-    fun findById(id: Long): LiveData<NoteDb>
+    fun findById(id: Long): Flow<NoteDb>
 
     @Query("SELECT * FROM NoteDb WHERE id LIKE :id")
     fun findByIdSync(id: Long): NoteDb
