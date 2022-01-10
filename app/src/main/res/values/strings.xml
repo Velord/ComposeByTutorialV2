@@ -32,8 +32,10 @@
     <string name="grid">Grid</string>
     <string name="grid_icon">Grid icon</string>
     <string name="title">Title</string>
+    <string name="body">Body</string>
     <string name="content">Content</string>
     <string name="drawer_header_icon">Drawer Header Icon</string>
+    <string name="drawer_button">Drawer Button</string>
     <string name="jet_notes">Jet Notes</string>
     <string name="screen_navigation_button">Screen Navigation Button</string>
     <string name="notes">Notes</string>
@@ -41,10 +43,16 @@
     <string name="trash">Trash</string>
     <string name="color_picker">Color picker</string>
     <string name="top_app_bar_description">Top App bar Description</string>
-
-
-
-
+    <string name="add_note_button">Add Note Button</string>
+    <string name="save_note">Save Note</string>
+    <string name="save_note_button">Save Note Button</string>
+    <string name="open_color_picker_button">Open Color Picker Button</string>
+    <string name="delete_note_button">Delete Note Button</string>
+    <string name="picked_color">Picked color</string>
+    <string name="can_note_be_checked_off">Can note be checked off ?</string>
+    <string name="move_note_to_the_trash">Move note to the trash ?</string>
+    <string name="are_you_sure_you_want">Are you sure you want to move this note to the trash ?</string>
+    <string name="dismiss">Dismiss</string>
 
 
 </resources>

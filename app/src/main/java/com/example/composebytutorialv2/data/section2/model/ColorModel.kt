@@ -9,9 +9,9 @@ data class ColorModel(
     val hex: String
 ) {
 
+    fun getGraphicColor(): Color = Color(android.graphics.Color.parseColor(hex))
+
     companion object {
         val DEFAULT = with(ColorDb.DEFAULT_COLOR) { ColorModel(id, name, hex) }
-
-        fun fromHex(hex: String): Color = Color(android.graphics.Color.parseColor(hex))
     }
 }

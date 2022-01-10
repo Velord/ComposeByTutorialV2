@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun NoteColor(
+fun NoteColorView(
     modifier: Modifier = Modifier,
     size: Dp,
     color: Color,
@@ -36,7 +36,7 @@ fun NoteColor(
 @Preview
 @Composable
 fun NoteColorPreview() {
-    NoteColor(
+    NoteColorView(
         color = Color.Red,
         size = 40.dp,
         borderSize = 2.dp

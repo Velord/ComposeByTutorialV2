@@ -23,7 +23,7 @@ interface NoteDao {
     fun findByIdSync(id: Long): NoteDb
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(noteDb: NoteDb)
+    fun insertOrReplace(noteDb: NoteDb)
 
     @Insert
     fun insertAll(vararg noteDb: NoteDb)

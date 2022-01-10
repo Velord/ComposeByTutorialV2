@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.material.ExperimentalMaterialApi
 import com.example.composebytutorialv2.R
 import com.example.composebytutorialv2.ui.main.MainActivity
 
+@ExperimentalMaterialApi
 class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
