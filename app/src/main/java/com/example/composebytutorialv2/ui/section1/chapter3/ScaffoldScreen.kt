@@ -1,4 +1,4 @@
-package com.example.composebytutorialv2.section1.chapter3
+package com.example.composebytutorialv2.ui.section1.chapter3
 
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -13,6 +13,8 @@ import com.example.composebytutorialv2.R
 import com.example.composebytutorialv2.navigation.BackButtonHandler
 import com.example.composebytutorialv2.navigation.Screen
 import com.example.composebytutorialv2.navigation.Section1Router
+import com.example.composebytutorialv2.section1.chapter3.ColumnScreen
+import com.example.composebytutorialv2.section1.chapter3.RowScreen
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 

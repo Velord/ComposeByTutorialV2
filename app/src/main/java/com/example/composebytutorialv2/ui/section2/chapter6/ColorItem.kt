@@ -25,9 +25,9 @@ fun ColorItem(
                 onColorSelect(color)
             }
     ) {
-        NoteColor(
+        NoteColorView(
             modifier = Modifier.padding(10.dp),
-            color = ColorModel.fromHex(color.hex),
+            color = color.getGraphicColor(),
             size = 80.dp,
             borderSize = 2.dp
         )

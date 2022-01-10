@@ -18,7 +18,7 @@ interface Repository {
     fun getAllNotesFlow(): Flow<List<NoteModel>>
     fun getAllNotesInTrashFlow(): Flow<List<NoteModel>>
     fun getNote(id: Long): Flow<NoteModel>
-    fun insertNote(noteModel: NoteModel)
+    fun insertOrReplaceNote(noteModel: NoteModel)
     fun deleteNote(id: Long)
     fun deleteNotes(noteIds: List<Long>)
     fun moveNoteToTrash(noteId: Long)
@@ -86,8 +86,8 @@ class RepositoryImpl(
             dbMapper.mapNote(it, colorDbModel)
         }
 
-    override fun insertNote(noteModel: NoteModel) {
-        noteDao.insert(dbMapper.mapDbNote(noteModel))
+    override fun insertOrReplaceNote(noteModel: NoteModel) {
+        noteDao.insertOrReplace(dbMapper.mapDbNote(noteModel))
         updateNotesFlow()
     }
 
@@ -104,7 +104,7 @@ class RepositoryImpl(
     override fun moveNoteToTrash(noteId: Long) {
         val dbNote = noteDao.findByIdSync(noteId)
         val newDbNote = dbNote.copy(isInTrash = true)
-        noteDao.insert(newDbNote)
+        noteDao.insertOrReplace(newDbNote)
         updateNotesFlow()
     }
 
@@ -112,7 +112,7 @@ class RepositoryImpl(
         val dbNotesInTrash = noteDao.getNotesByIdsSync(noteIds)
         dbNotesInTrash.forEach {
             val newDbNote = it.copy(isInTrash = false)
-            noteDao.insert(newDbNote)
+            noteDao.insertOrReplace(newDbNote)
         }
         updateNotesFlow()
     }

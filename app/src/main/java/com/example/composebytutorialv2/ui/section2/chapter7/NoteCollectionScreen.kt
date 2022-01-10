@@ -3,6 +3,7 @@ package com.example.composebytutorialv2.ui.section2.chapter7
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.List
 import androidx.compose.runtime.Composable
@@ -15,25 +16,33 @@ import com.example.composebytutorialv2.data.section2.model.NoteModel
 import com.example.composebytutorialv2.ui.main.MainViewModel
 import com.example.composebytutorialv2.ui.section2.chapter5.NoteListItemView
 
+@ExperimentalMaterialApi
 @Composable
-fun NoteCollectionScreen(viewModel: MainViewModel) {
+fun NoteCollectionScreen(
+    viewModel: MainViewModel,
+    drawTopBar: Boolean = false
+) {
     val notes: List<NoteModel> by viewModel.noteCollection.collectAsState(emptyList())
 
     Column {
-        JetNoteTopAppBarView(
-            title = stringResource(R.string.jet_notes),
-            icon = Icons.Filled.List,
-            onIconClick = {}
-        )
-        NotesListView(notes = notes,
+        if (drawTopBar) {
+            JetNoteTopAppBarView(
+                title = stringResource(R.string.jet_notes),
+                icon = Icons.Filled.List,
+                onIconClick = {}
+            )
+        }
+        NoteListView(
+            notes = notes,
             onNoteClick = viewModel::noteClick,
             onNoteCheckedChange = viewModel::noteCheckedChange
         )
     }
 }
 
+@ExperimentalMaterialApi
 @Composable
-private fun NotesListView(
+fun NoteListView(
     notes: List<NoteModel>,
     onNoteClick: (NoteModel) -> Unit,
     onNoteCheckedChange: (NoteModel) -> Unit
@@ -49,10 +58,11 @@ private fun NotesListView(
     }
 }
 
+@ExperimentalMaterialApi
 @Preview
 @Composable
 private fun NoteListViewPreview() {
-    NotesListView(
+    NoteListView(
         notes = listOf(
             NoteModel(1, "Title 1", "Content 1", null),
             NoteModel(1, "Title 2", "Content 2", true),
