@@ -18,8 +18,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.composebytutorialv2.R
+import com.example.composebytutorialv2.navigation.Router
 import com.example.composebytutorialv2.navigation.Screen
-import com.example.composebytutorialv2.navigation.Section1Router
 
 @Preview
 @Composable
@@ -58,7 +58,7 @@ fun NavigationButton(text: String, screen: Screen.Section1) {
         colors = ButtonDefaults.buttonColors(
             backgroundColor = colorResource(id = R.color.teal_200)
         ),
-        onClick = { Section1Router.navigateTo(screen) },
+        onClick = { Router.navigateTo(screen) },
         border = BorderStroke(2.dp, Color.Black)
     ) {
         Text(text = text, color = Color.Magenta)

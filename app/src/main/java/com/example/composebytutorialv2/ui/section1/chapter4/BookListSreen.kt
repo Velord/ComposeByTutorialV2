@@ -20,8 +20,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.composebytutorialv2.R
 import com.example.composebytutorialv2.navigation.BackButtonHandler
+import com.example.composebytutorialv2.navigation.Router
 import com.example.composebytutorialv2.navigation.Screen
-import com.example.composebytutorialv2.navigation.Section1Router
 
 data class BookCategory(
     val id: Int,
@@ -62,7 +62,7 @@ fun BookListScreen() {
     MyBookList()
     
     BackButtonHandler {
-        Section1Router.navigateTo(Screen.Section1.Navigation)
+        Router.navigateTo(Screen.Section1.Navigation)
     }
 }
 

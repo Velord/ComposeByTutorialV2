@@ -7,18 +7,16 @@ import androidx.compose.material.icons.filled.List
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import com.example.composebytutorialv2.R
 import com.example.composebytutorialv2.navigation.Screen
-import com.example.composebytutorialv2.ui.main.MainViewModel
+import com.example.composebytutorialv2.ui.section2.NotesViewModel
 import com.example.composebytutorialv2.ui.section2.chapter5.appDrawer.AppDrawer
 import com.example.composebytutorialv2.ui.section2.chapter7.NoteCollectionScreen
-import com.example.composebytutorialv2.ui.section2.theme.JetNotesTheme
 import kotlinx.coroutines.launch
 
 @ExperimentalMaterialApi
 @Composable
-fun EntryPointNoteScreen(viewModel: MainViewModel) {
+fun EntryPointNoteScreen(viewModel: NotesViewModel) {
     val coroutineScope = rememberCoroutineScope()
     val scaffoldState = rememberScaffoldState()
 
@@ -76,12 +74,4 @@ fun EntryPointNoteScreen(viewModel: MainViewModel) {
             NoteCollectionScreen(viewModel)
         }
     )
-}
-
-@Preview
-@Composable
-fun EntryPointNoteScreenPreview() {
-    JetNotesTheme {
-
-    }
 }

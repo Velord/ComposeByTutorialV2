@@ -1,10 +1,10 @@
-package com.example.composebytutorialv2.ui.main
+package com.example.composebytutorialv2.ui.section2
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.composebytutorialv2.data.section2.model.NoteModel
 import com.example.composebytutorialv2.data.section2.repository.Repository
-import com.example.composebytutorialv2.navigation.JetNoteRouter
+import com.example.composebytutorialv2.navigation.Router
 import com.example.composebytutorialv2.navigation.Screen
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(
+class NotesViewModel @Inject constructor(
     private val repository: Repository
 ) : ViewModel() {
 
@@ -30,12 +30,12 @@ class MainViewModel @Inject constructor(
 
     fun createNewNote() {
         noteEntry.update { NoteModel() }
-        JetNoteRouter.navigateTo(Screen.Section2.SaveNote)
+        Router.navigateTo(Screen.Section2.SaveNote)
     }
 
     fun noteClick(note: NoteModel) {
         noteEntry.update { note }
-        JetNoteRouter.navigateTo(Screen.Section2.SaveNote)
+        Router.navigateTo(Screen.Section2.SaveNote)
     }
 
     fun noteCheckedChange(note: NoteModel) {
@@ -51,7 +51,7 @@ class MainViewModel @Inject constructor(
     fun saveNote(note: NoteModel) {
         viewModelScope.launch(Dispatchers.Default) {
             repository.insertOrReplaceNote(note)
-            JetNoteRouter.navigateTo(Screen.Section2.EntryPointNote)
+            Router.navigateTo(Screen.Section2.EntryPointNote)
             noteEntry.update { NoteModel() }
         }
     }
@@ -59,7 +59,7 @@ class MainViewModel @Inject constructor(
     fun moveToTrash(note: NoteModel) {
         viewModelScope.launch(Dispatchers.Default) {
             repository.moveNoteToTrash(note.id)
-            JetNoteRouter.navigateTo(Screen.Section2.EntryPointNote)
+            Router.navigateTo(Screen.Section2.EntryPointNote)
         }
     }
 }

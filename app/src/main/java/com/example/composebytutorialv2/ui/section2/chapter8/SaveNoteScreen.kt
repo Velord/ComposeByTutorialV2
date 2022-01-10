@@ -20,9 +20,9 @@ import com.example.composebytutorialv2.R
 import com.example.composebytutorialv2.data.section2.model.ColorModel
 import com.example.composebytutorialv2.data.section2.model.NEW_NOTE_ID
 import com.example.composebytutorialv2.data.section2.model.NoteModel
-import com.example.composebytutorialv2.navigation.JetNoteRouter
+import com.example.composebytutorialv2.navigation.Router
 import com.example.composebytutorialv2.navigation.Screen
-import com.example.composebytutorialv2.ui.main.MainViewModel
+import com.example.composebytutorialv2.ui.section2.NotesViewModel
 import com.example.composebytutorialv2.ui.section2.chapter6.ColorPicker
 import com.example.composebytutorialv2.ui.section2.chapter6.NoteColorView
 import kotlinx.coroutines.launch
@@ -32,7 +32,7 @@ import kotlinx.coroutines.launch
 //BottomDrawerValue.Expanded works fine
 @ExperimentalMaterialApi
 @Composable
-fun SaveNoteScreen(viewModel: MainViewModel) {
+fun SaveNoteScreen(viewModel: NotesViewModel) {
     val noteEntry by viewModel.noteEntry.collectAsState(NoteModel())
     val colors by viewModel.allColors.collectAsState(emptyList())
 
@@ -50,7 +50,7 @@ fun SaveNoteScreen(viewModel: MainViewModel) {
         if (bottomDrawerState.isOpen) {
             coroutineScope.launch { bottomDrawerState.close() }
         } else {
-            JetNoteRouter.navigateTo(Screen.Section2.EntryPointNote)
+            Router.navigateTo(Screen.Section2.EntryPointNote)
         }
     }
 
@@ -72,7 +72,7 @@ fun SaveNoteScreen(viewModel: MainViewModel) {
             SaveNoteTopAppBar(
                 isEditingMode = noteEntry.id != NEW_NOTE_ID,
                 onBackClick = {
-                    JetNoteRouter.navigateTo(Screen.Section2.EntryPointNote)
+                    Router.navigateTo(Screen.Section2.EntryPointNote)
                 },
                 onSaveNoteClick = {
                     viewModel.saveNote(noteEntry)
@@ -293,7 +293,7 @@ private fun PickedColorPreview() {
 @Composable
 private fun DrawAlertDialog(
     noteEntry: NoteModel,
-    viewModel: MainViewModel,
+    viewModel: NotesViewModel,
     shownState: MutableState<Boolean>,
 ) {
     if (shownState.value) {

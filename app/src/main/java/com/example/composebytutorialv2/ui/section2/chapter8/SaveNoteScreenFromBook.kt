@@ -21,15 +21,15 @@ import androidx.compose.ui.unit.sp
 import com.example.composebytutorialv2.data.section2.model.ColorModel
 import com.example.composebytutorialv2.data.section2.model.NEW_NOTE_ID
 import com.example.composebytutorialv2.data.section2.model.NoteModel
-import com.example.composebytutorialv2.navigation.JetNoteRouter
+import com.example.composebytutorialv2.navigation.Router
 import com.example.composebytutorialv2.navigation.Screen
-import com.example.composebytutorialv2.ui.main.MainViewModel
+import com.example.composebytutorialv2.ui.section2.NotesViewModel
 import com.example.composebytutorialv2.ui.section2.chapter6.NoteColorView
 import kotlinx.coroutines.launch
 
 @ExperimentalMaterialApi
 @Composable
-fun SaveNoteScreenFromBook(viewModel: MainViewModel) {
+fun SaveNoteScreenFromBook(viewModel: NotesViewModel) {
 
     val noteEntry: NoteModel by viewModel.noteEntry
         .collectAsState(NoteModel())
@@ -50,7 +50,7 @@ fun SaveNoteScreenFromBook(viewModel: MainViewModel) {
         if (bottomDrawerState.isOpen) {
             coroutineScope.launch { bottomDrawerState.close() }
         } else {
-            JetNoteRouter.navigateTo(Screen.Section2.EntryPointNote)
+            Router.navigateTo(Screen.Section2.EntryPointNote)
         }
     })
 
@@ -60,7 +60,7 @@ fun SaveNoteScreenFromBook(viewModel: MainViewModel) {
             SaveNoteTopAppBar(
                 isEditingMode = isEditingMode,
                 onBackClick = {
-                    JetNoteRouter.navigateTo(Screen.Section2.EntryPointNote)
+                    Router.navigateTo(Screen.Section2.EntryPointNote)
                 },
                 onSaveNoteClick = {
                     viewModel.saveNote(noteEntry)

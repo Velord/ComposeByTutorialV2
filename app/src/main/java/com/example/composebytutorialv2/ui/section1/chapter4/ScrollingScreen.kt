@@ -19,8 +19,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.composebytutorialv2.R
 import com.example.composebytutorialv2.navigation.BackButtonHandler
+import com.example.composebytutorialv2.navigation.Router
 import com.example.composebytutorialv2.navigation.Screen
-import com.example.composebytutorialv2.navigation.Section1Router
 
 //two scrollable items on the same screen doesn't work/
 //row does not work
@@ -32,7 +32,7 @@ fun ScrollingScreen() {
     MyScrollingScreenColumn()
 
     BackButtonHandler {
-        Section1Router.navigateTo(Screen.Section1.Navigation)
+        Router.navigateTo(Screen.Section1.Navigation)
     }
 }
 

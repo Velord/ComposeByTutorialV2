@@ -20,8 +20,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.composebytutorialv2.R
 import com.example.composebytutorialv2.navigation.BackButtonHandler
+import com.example.composebytutorialv2.navigation.Router
 import com.example.composebytutorialv2.navigation.Screen
-import com.example.composebytutorialv2.navigation.Section1Router
 import com.example.composebytutorialv2.section1.chapter4.grid.Grid
 import com.google.accompanist.flowlayout.FlowMainAxisAlignment
 import com.google.accompanist.flowlayout.FlowRow
@@ -95,7 +95,7 @@ fun GridScreen() {
     }
 
     BackButtonHandler {
-        Section1Router.navigateTo(Screen.Section1.Navigation)
+        Router.navigateTo(Screen.Section1.Navigation)
     }
 }
 

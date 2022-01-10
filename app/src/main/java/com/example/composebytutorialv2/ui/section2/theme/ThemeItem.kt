@@ -28,7 +28,8 @@ fun ThemeItem() {
         Switch(
             checked = JetNotesThemeSettings.isDarkThemeEnabled,
             onCheckedChange = { JetNotesThemeSettings.isDarkThemeEnabled = it },
-            modifier = Modifier.padding(horizontal = 8.dp)
+            modifier = Modifier
+                .padding(horizontal = 8.dp)
                 .align(Alignment.CenterVertically)
         )
     }
