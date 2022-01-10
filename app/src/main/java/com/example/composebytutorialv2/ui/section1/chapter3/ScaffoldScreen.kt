@@ -10,9 +10,11 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.composebytutorialv2.R
-import com.example.composebytutorialv2.ui.router.BackButtonHandler
-import com.example.composebytutorialv2.ui.router.JetFundamentalsRouter
-import com.example.composebytutorialv2.ui.router.Screen
+import com.example.composebytutorialv2.navigation.BackButtonHandler
+import com.example.composebytutorialv2.navigation.Screen
+import com.example.composebytutorialv2.navigation.Section1Router
+import com.example.composebytutorialv2.section1.chapter3.ColumnScreen
+import com.example.composebytutorialv2.section1.chapter3.RowScreen
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -32,7 +34,7 @@ fun ScaffoldScreen() {
     )
 
     BackButtonHandler {
-        JetFundamentalsRouter.navigateTo(Screen.Navigation)
+        Section1Router.navigateTo(Screen.Section1.Navigation)
     }
 }
 
