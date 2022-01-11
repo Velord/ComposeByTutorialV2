@@ -20,6 +20,8 @@
     <string name="surface">Surface</string>
     <string name="scaffold">Scaffold</string>
     <string name="menu">Menu</string>
+    <string name="settings">Settings</string>
+    <string name="change_theme">Change theme</string>
     <string name="scrolling">Scrolling</string>
     <string name="advanced_architecture_android">Advanced Architecture Android</string>
     <string name="kotlin_apprentice">Kotlin Apprentice</string>
@@ -53,6 +55,23 @@
     <string name="move_note_to_the_trash">Move note to the trash ?</string>
     <string name="are_you_sure_you_want">Are you sure you want to move this note to the trash ?</string>
     <string name="dismiss">Dismiss</string>
+    <string name="eye">Eye</string>
+    <string name="account">Account</string>
+    <string name="default_user_name">u/Жечка Дырова</string>
+    <string name="karma">Karma</string>
+    <string name="default_karma_amount">456</string>
+    <string name="age">Age</string>
+    <string name="default_age_amount">17</string>
+    <string name="home_icon">Home icon</string>
+    <string name="subscription_icon">Subscription icon</string>
+    <string name="post_icon">Post icon</string>
+    <string name="home">Home</string>
+    <string name="my_profile">My Profile</string>
+    <string name="new_post">New Post</string>
+    <string name="subreddits">Subreddits</string>
+    <string name="saved">Saved</string>
+
+
 
 
 </resources>

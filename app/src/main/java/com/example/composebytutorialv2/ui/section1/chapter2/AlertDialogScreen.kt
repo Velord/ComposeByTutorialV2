@@ -12,8 +12,8 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.composebytutorialv2.R
+import com.example.composebytutorialv2.navigation.Router
 import com.example.composebytutorialv2.navigation.Screen
-import com.example.composebytutorialv2.navigation.Section1Router
 
 @Preview
 @Composable
@@ -26,7 +26,7 @@ fun MyAlertDialogScreen() {
         AlertDialog(
             onDismissRequest = {
                 shouldShowDialog.value = false
-                Section1Router.navigateTo(Screen.Section1.Navigation)
+                Router.navigateTo(Screen.Section1.Navigation)
             },
             title = {
                 Text(text = stringResource(id = R.string.alert_title))
@@ -39,7 +39,7 @@ fun MyAlertDialogScreen() {
                     colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = R.color.teal_200)),
                     onClick = {
                         shouldShowDialog.value = false
-                        Section1Router.navigateTo(Screen.Section1.Navigation)
+                        Router.navigateTo(Screen.Section1.Navigation)
                     }
                 ) {
                     Text(text = stringResource(id = R.string.confirm), color = Color.White)

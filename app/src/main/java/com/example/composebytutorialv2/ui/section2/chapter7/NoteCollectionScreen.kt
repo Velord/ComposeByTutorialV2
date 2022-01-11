@@ -13,13 +13,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.composebytutorialv2.R
 import com.example.composebytutorialv2.data.section2.model.NoteModel
-import com.example.composebytutorialv2.ui.main.MainViewModel
+import com.example.composebytutorialv2.ui.section2.NotesViewModel
 import com.example.composebytutorialv2.ui.section2.chapter5.NoteListItemView
 
 @ExperimentalMaterialApi
 @Composable
 fun NoteCollectionScreen(
-    viewModel: MainViewModel,
+    viewModel: NotesViewModel,
     drawTopBar: Boolean = false
 ) {
     val notes: List<NoteModel> by viewModel.noteCollection.collectAsState(emptyList())
