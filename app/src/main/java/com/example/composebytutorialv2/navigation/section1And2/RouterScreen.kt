@@ -13,14 +13,14 @@ import com.example.composebytutorialv2.section1.chapter2.*
 import com.example.composebytutorialv2.section1.chapter3.SurfaceScreen
 import com.example.composebytutorialv2.section1.chapter4.BookListScreen
 import com.example.composebytutorialv2.section1.chapter4.ScrollingScreen
-import com.example.composebytutorialv2.ui.section1.chapter1.NavigationScreen
-import com.example.composebytutorialv2.ui.section1.chapter3.ScaffoldScreen
-import com.example.composebytutorialv2.ui.section1.chapter4.grid.GridScreen
-import com.example.composebytutorialv2.ui.section2.NotesViewModel
-import com.example.composebytutorialv2.ui.section2.chapter5.EntryPointNoteScreen
-import com.example.composebytutorialv2.ui.section2.chapter7.NoteCollectionScreen
-import com.example.composebytutorialv2.ui.section2.chapter8.SaveNoteScreen
-import com.example.composebytutorialv2.ui.section2.chapter8.TrashScreen
+import com.example.composebytutorialv2.ui.screen.section1.chapter1.NavigationScreen
+import com.example.composebytutorialv2.ui.screen.section1.chapter3.ScaffoldScreen
+import com.example.composebytutorialv2.ui.screen.section1.chapter4.GridScreen
+import com.example.composebytutorialv2.ui.screen.section2.NotesViewModel
+import com.example.composebytutorialv2.ui.screen.section2.chapter5.EntryPointNoteScreen
+import com.example.composebytutorialv2.ui.screen.section2.chapter7.NoteCollectionScreen
+import com.example.composebytutorialv2.ui.screen.section2.chapter8.SaveNoteScreen
+import com.example.composebytutorialv2.ui.screen.section2.chapter8.TrashScreen
 
 sealed class Screen {
     sealed class Section1 : Screen() {

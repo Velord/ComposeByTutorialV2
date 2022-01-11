@@ -8,9 +8,9 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import com.example.composebytutorialv2.navigation.Router
 import com.example.composebytutorialv2.navigation.RouterScreen
-import com.example.composebytutorialv2.ui.section2.NotesViewModel
-import com.example.composebytutorialv2.ui.section2.theme.JetNotesTheme
-import com.example.composebytutorialv2.ui.section3.RedditApp
+import com.example.composebytutorialv2.ui.screen.section2.NotesViewModel
+import com.example.composebytutorialv2.ui.screen.section3.RedditApp
+import com.example.composebytutorialv2.ui.theme.section2.JetNotesTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @ExperimentalMaterialApi
