@@ -1,4 +1,4 @@
-package com.example.composebytutorialv2.navigation
+package com.example.composebytutorialv2.navigation.section1And2
 
 import androidx.activity.ComponentActivity
 import androidx.activity.OnBackPressedCallback
