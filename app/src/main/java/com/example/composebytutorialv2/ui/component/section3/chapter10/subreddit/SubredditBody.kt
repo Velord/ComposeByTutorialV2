@@ -44,7 +44,7 @@ fun SubredditBodyView(subredditModel: SubredditModel, modifier: Modifier = Modif
 
         SubredditMembersView(
             membersStringRes = subredditModel.membersStringRes,
-            modifier = modifier.constrainAs(name) {
+            modifier = modifier.constrainAs(members) {
                 top.linkTo(name.bottom)
                 centerHorizontallyTo(parent)
             }

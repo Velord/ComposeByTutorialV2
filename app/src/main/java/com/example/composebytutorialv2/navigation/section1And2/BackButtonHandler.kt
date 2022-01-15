@@ -27,8 +27,6 @@ internal fun Handler(
 
     DisposableEffect(dispatcher) {
         dispatcher.addCallback(handler)
-
-
         onDispose { handler.remove() }
     }
 

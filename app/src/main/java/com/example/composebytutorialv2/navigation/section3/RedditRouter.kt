@@ -9,6 +9,7 @@ sealed class RedditScreen(val titleResId: Int) {
     object SubscriptionList : RedditScreen(R.string.subreddits)
     object NewPost : RedditScreen(R.string.new_post)
     object MyProfile : RedditScreen(R.string.my_profile)
+    object ChooseCommunity : RedditScreen(R.string.choose_community)
 }
 
 object RedditRouter {

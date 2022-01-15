@@ -14,9 +14,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.example.composebytutorialv2.R
-import com.example.composebytutorialv2.navigation.Router
-import com.example.composebytutorialv2.navigation.Screen
 import com.example.composebytutorialv2.navigation.section1And2.BackButtonHandler
+import com.example.composebytutorialv2.navigation.section1And2.Router
+import com.example.composebytutorialv2.navigation.section1And2.Screen
 
 @Preview
 @Composable

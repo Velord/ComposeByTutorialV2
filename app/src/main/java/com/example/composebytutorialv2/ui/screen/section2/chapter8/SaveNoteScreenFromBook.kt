@@ -21,8 +21,8 @@ import androidx.compose.ui.unit.sp
 import com.example.composebytutorialv2.data.model.section2.ColorModel
 import com.example.composebytutorialv2.data.model.section2.NEW_NOTE_ID
 import com.example.composebytutorialv2.data.model.section2.NoteModel
-import com.example.composebytutorialv2.navigation.Router
-import com.example.composebytutorialv2.navigation.Screen
+import com.example.composebytutorialv2.navigation.section1And2.Router
+import com.example.composebytutorialv2.navigation.section1And2.Screen
 import com.example.composebytutorialv2.ui.component.section2.chapter6.NoteColorView
 import com.example.composebytutorialv2.ui.screen.section2.NotesViewModel
 import kotlinx.coroutines.launch

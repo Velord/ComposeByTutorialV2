@@ -37,6 +37,7 @@ interface Repository {
     fun getAllOwnedPosts(): Flow<List<PostModel>>
     fun insertPost(post: PostModel)
     fun deleteAllPost()
+    fun getAllSubreddits(searchedText: String): List<String>
 }
 
 class RepositoryImpl(
@@ -54,13 +55,15 @@ class RepositoryImpl(
         MutableStateFlow(emptyList())
     }
 
-    private val allPostFlow: MutableStateFlow<List<PostModel>> by lazy {
+    private val allPostsFlow: MutableStateFlow<List<PostModel>> by lazy {
         MutableStateFlow(emptyList())
     }
 
-    private val ownedPostsLiveData: MutableStateFlow<List<PostModel>> by lazy {
+    private val ownedPostsFlow: MutableStateFlow<List<PostModel>> by lazy {
         MutableStateFlow(emptyList())
     }
+
+    private var searchedText = ""
 
     init {
         initDatabase {
@@ -159,9 +162,9 @@ class RepositoryImpl(
         notesInTrashFlow.value = getAllNotesDependingOnTrashStateSync(true)
     }
 
-    override fun getAllPosts(): Flow<List<PostModel>> = allPostFlow
+    override fun getAllPosts(): Flow<List<PostModel>> = allPostsFlow
 
-    override fun getAllOwnedPosts(): Flow<List<PostModel>> = ownedPostsLiveData
+    override fun getAllOwnedPosts(): Flow<List<PostModel>> = ownedPostsFlow
 
     private fun getAllPostsFromDatabase(): List<PostModel> =
         postDao.getAllPosts().map(dbMapper::mapPost)
@@ -180,7 +183,17 @@ class RepositoryImpl(
     }
 
     private fun updatePostFlow() {
-        allPostFlow.update { getAllPostsFromDatabase() }
-        ownedPostsLiveData.update { getAllOwnedPostsFromDatabase() }
+        allPostsFlow.update { getAllPostsFromDatabase() }
+        ownedPostsFlow.update { getAllOwnedPostsFromDatabase() }
+    }
+
+    override fun getAllSubreddits(searchedText: String): List<String> {
+        this.searchedText = searchedText
+
+        if (searchedText.isNotEmpty()) {
+            return postDao.getAllSubreddits().filter { it.contains(searchedText) }
+        }
+
+        return postDao.getAllSubreddits()
     }
 }
