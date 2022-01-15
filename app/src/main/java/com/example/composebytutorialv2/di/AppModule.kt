@@ -2,11 +2,11 @@ package com.example.composebytutorialv2.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.composebytutorialv2.data.section2.database.DbMapper
-import com.example.composebytutorialv2.data.section2.database.DbMapperImpl
-import com.example.composebytutorialv2.data.section2.repository.Repository
-import com.example.composebytutorialv2.data.section2.repository.RepositoryImpl
-import com.example.composebytutorialv2.ui.section2.data.database.AppDatabase
+import com.example.composebytutorialv2.data.database.AppDatabase
+import com.example.composebytutorialv2.data.database.DbMapper
+import com.example.composebytutorialv2.data.database.DbMapperImpl
+import com.example.composebytutorialv2.data.repository.Repository
+import com.example.composebytutorialv2.data.repository.RepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,14 +29,15 @@ object AppModule {
             context,
             AppDatabase::class.java,
             AppDatabase.DATABASE_NAME
-        ).build()
+        ).fallbackToDestructiveMigration().build()
 
     @Singleton
     @Provides
     fun provideRepository(database: AppDatabase, dbMapper: DbMapper): Repository {
         val noteDao = database.noteDao()
         val colorDao = database.colorDao()
+        val postDao = database.postDao()
 
-        return RepositoryImpl(noteDao, colorDao, dbMapper)
+        return RepositoryImpl(dbMapper, noteDao, colorDao, postDao)
     }
 }
