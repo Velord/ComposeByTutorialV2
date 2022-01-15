@@ -1,4 +1,4 @@
-package com.example.composebytutorialv2.section1.chapter2
+package com.example.composebytutorialv2.ui.screen.section1.chapter2
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*

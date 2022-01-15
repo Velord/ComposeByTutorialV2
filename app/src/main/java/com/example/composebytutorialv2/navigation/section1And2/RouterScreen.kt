@@ -9,11 +9,11 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.ViewModel
-import com.example.composebytutorialv2.section1.chapter2.*
 import com.example.composebytutorialv2.section1.chapter3.SurfaceScreen
 import com.example.composebytutorialv2.section1.chapter4.BookListScreen
 import com.example.composebytutorialv2.section1.chapter4.ScrollingScreen
 import com.example.composebytutorialv2.ui.screen.section1.chapter1.NavigationScreen
+import com.example.composebytutorialv2.ui.screen.section1.chapter2.*
 import com.example.composebytutorialv2.ui.screen.section1.chapter3.ScaffoldScreen
 import com.example.composebytutorialv2.ui.screen.section1.chapter4.GridScreen
 import com.example.composebytutorialv2.ui.screen.section2.NotesViewModel

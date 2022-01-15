@@ -2,7 +2,10 @@ package com.example.composebytutorialv2.ui.component.custom
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
@@ -14,11 +17,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.composebytutorialv2.R
+import com.example.composebytutorialv2.ui.theme.InterFont
 import com.example.composebytutorialv2.ui.theme.gradientHeliotropeToBrinkPinkToCoral
 import java.util.*
 
@@ -31,23 +36,23 @@ fun GradientButton(
     onClick: () -> Unit = {},
 ) {
     Button(
-        modifier = modifier.fillMaxWidth()
+        modifier = modifier
+            .fillMaxWidth()
             .padding(horizontal = 40.dp, vertical = 78.dp)
-            .widthIn(200.dp)
-            .heightIn(48.dp)
             .clip(RoundedCornerShape(160.dp))
-            .background(gradient)
-        ,
+            .background(gradient),
         elevation = null,
         onClick = onClick,
         colors = ButtonDefaults.buttonColors(backgroundColor = Color.Transparent, contentColor = Color.Transparent)
     ) {
         Text(
             text = stringResource(textResId).uppercase(Locale.getDefault()),
-            modifier = textModifier,
+            modifier = textModifier.padding(vertical = 12.dp),
             color = Color.White,
             fontSize = 16.sp,
-            fontWeight = FontWeight.Medium,
+            fontFamily = InterFont,
+            fontWeight = FontWeight.SemiBold,
+            fontStyle = FontStyle.Normal,
         )
     }
 }

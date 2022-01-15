@@ -9,7 +9,10 @@ import com.example.composebytutorialv2.data.database.model.section2.ColorDb
 import com.example.composebytutorialv2.data.database.model.section2.NoteDb
 import com.example.composebytutorialv2.data.database.model.section3.PostDbModel
 
-@Database(entities = [NoteDb::class, ColorDb::class, PostDbModel::class], version = 1)
+@Database(
+    version = 2,
+    entities = [NoteDb::class, ColorDb::class, PostDbModel::class],
+)
 abstract class AppDatabase : RoomDatabase() {
 
     companion object {

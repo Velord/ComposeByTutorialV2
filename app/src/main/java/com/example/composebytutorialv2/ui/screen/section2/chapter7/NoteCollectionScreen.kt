@@ -13,9 +13,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.composebytutorialv2.R
 import com.example.composebytutorialv2.data.model.section2.NoteModel
+import com.example.composebytutorialv2.ui.component.section2.chapter5.NoteListItemView
 import com.example.composebytutorialv2.ui.component.section2.chapter7.JetNoteTopAppBarView
 import com.example.composebytutorialv2.ui.screen.section2.NotesViewModel
-import com.example.composebytutorialv2.ui.screen.section2.chapter5.NoteListItemView
 
 @ExperimentalMaterialApi
 @Composable

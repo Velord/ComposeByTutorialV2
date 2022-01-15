@@ -1,4 +1,4 @@
-package com.example.composebytutorialv2.section1.chapter2
+package com.example.composebytutorialv2.ui.screen.section1.chapter2
 
 import androidx.compose.material.AlertDialog
 import androidx.compose.material.Button

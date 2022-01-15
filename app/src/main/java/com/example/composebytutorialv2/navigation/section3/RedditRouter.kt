@@ -1,4 +1,4 @@
-package com.example.composebytutorialv2.ui.screen.section3
+package com.example.composebytutorialv2.navigation.section3
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf

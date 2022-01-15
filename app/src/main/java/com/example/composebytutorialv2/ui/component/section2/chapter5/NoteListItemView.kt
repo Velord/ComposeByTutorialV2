@@ -1,4 +1,4 @@
-package com.example.composebytutorialv2.ui.screen.section2.chapter5
+package com.example.composebytutorialv2.ui.component.section2.chapter5
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

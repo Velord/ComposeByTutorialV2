@@ -1,4 +1,5 @@
 <resources>
+    <string name="lorem">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
     <string name="app_name">ComposeByTutorialV2</string>
     <string name="jetpack_compose">Jetpack Compose</string>
     <string name="text">Text</string>
@@ -70,6 +71,52 @@
     <string name="new_post">New Post</string>
     <string name="subreddits">Subreddits</string>
     <string name="saved">Saved</string>
+    <string name="subreddit_image">Subreddit Image</string>
+    <string name="subreddit_icon">Subreddit Icon</string>
+    <string name="community_icon">Community Icon</string>
+    <string name="raywenderlich_com">r/raywenderlich.com</string>
+    <string name="programming">r/programming</string>
+    <string name="androiddev">r/androiddev</string>
+    <string name="body_text">Your text post (optional)</string>
+    <string name="save_post">SAVE</string>
+    <string name="search">Search</string>
+    <string name="posts">Posts</string>
+    <string name="about">About</string>
+    <string name="verified_email">Verified Email</string>
+    <string name="gold_medal">Gold Medal</string>
+    <string name="top_comment">Top Comment</string>
+    <string name="share">Share</string>
+    <string name="subscriptions_icon">Subscriptions icon</string>
+    <string name="more_actions">More actions</string>
+    <string name="save">Saved</string>
+    <string name="post_header_description">Post Header</string>
+    <string name="upvote">Upvote</string>
+    <string name="post_action">Post action</string>
+    <string name="close">Close</string>
+    <string name="back">Back</string>
+    <string name="subreddit_header">r/%s</string>
+    <string name="post_header">Posted by u/%s - %s</string>
+    <string name="recently_visited_subreddits">Recently visited subreddits</string>
+    <string name="digitalnomad">r/digitalnomad</string>
+    <string name="covid19">r/covid19</string>
+    <string name="memes">r/memes</string>
+    <string name="humor">r/humor</string>
+    <string name="worldnews">r/worldnews</string>
+    <string name="dogs">r/dogs</string>
+    <string name="cats">r/cats</string>
+    <string name="all">All</string>
+    <string name="award">Award</string>
+    <string name="public_network">Reddit Public Access Network</string>
+    <string name="raywenderlich">r/raywenderlich</string>
+    <string name="members_120k">120k members</string>
+    <string name="members_600k">600k members</string>
+    <string name="members_400k">400k members</string>
+    <string name="members_500k">500k members</string>
+    <string name="hello_android_devs">Hello Android devs!</string>
+    <string name="welcome_to_android">Welcome to Android!</string>
+    <string name="hello_programmers">Hello programers!</string>
+    <string name="welcome_to_raywenderlich">Welcome to raywenderlich!</string>
+    <string name="communities">Communities</string>
 
 
 

@@ -13,20 +13,24 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import com.example.composebytutorialv2.R
+import com.example.composebytutorialv2.navigation.section3.RedditRouter
+import com.example.composebytutorialv2.navigation.section3.RedditScreen
 import com.example.composebytutorialv2.ui.component.section3.chapter9.appDrawer.RedditAppDrawerView
+import com.example.composebytutorialv2.ui.screen.section3.chapter10.HomeScreen
+import com.example.composebytutorialv2.ui.screen.section3.chapter10.SubredditCollectionScreen
 import com.example.composebytutorialv2.ui.theme.section3.RedditTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Composable
-fun RedditApp() {
+fun RedditApp(viewModel: RedditViewModel) {
     RedditTheme {
-        AppContent()
+        AppContent(viewModel)
     }
 }
 
 @Composable
-private fun AppContent() {
+private fun AppContent(viewModel: RedditViewModel) {
     val scaffoldState: ScaffoldState = rememberScaffoldState()
     val coroutineScope: CoroutineScope = rememberCoroutineScope()
 
@@ -45,7 +49,8 @@ private fun AppContent() {
             content = {
                 MainScreenContainer(
                     modifier = Modifier.padding(bottom = 56.dp),
-                    screenState = screenState
+                    screenState = screenState,
+                    viewModel = viewModel
                 )
             }
         )
@@ -87,17 +92,21 @@ fun TopAppBar(scaffoldState: ScaffoldState, coroutineScope: CoroutineScope) {
 }
 
 @Composable
-private fun MainScreenContainer(modifier: Modifier = Modifier, screenState: MutableState<RedditScreen>) {
+private fun MainScreenContainer(
+    modifier: Modifier = Modifier,
+    screenState: MutableState<RedditScreen>,
+    viewModel: RedditViewModel
+) {
     Surface(
         modifier = modifier,
         color = MaterialTheme.colors.background
     ) {
-//        when (screenState.value) {
-//            RedditScreen.Home -> HomeScreen()
-//            RedditScreen.SubscriptionList -> SubredditCollectionScreen()
+        when (screenState.value) {
+            RedditScreen.Home -> HomeScreen(viewModel)
+            RedditScreen.SubscriptionList -> SubredditCollectionScreen()
 //            RedditScreen.NewPost -> AddScreen()
 //            RedditScreen.MyProfile -> Profile()
-//        }
+        }
     }
 }
 
