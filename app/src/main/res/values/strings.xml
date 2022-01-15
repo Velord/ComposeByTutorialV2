@@ -117,8 +117,8 @@
     <string name="hello_programmers">Hello programers!</string>
     <string name="welcome_to_raywenderlich">Welcome to raywenderlich!</string>
     <string name="communities">Communities</string>
-
-
+    <string name="trophies">TROPHIES</string>
+    <string name="choose_community">Choose community</string>
 
 
 </resources>

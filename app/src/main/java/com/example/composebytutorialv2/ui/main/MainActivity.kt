@@ -1,13 +1,13 @@
 package com.example.composebytutorialv2.ui.main
 
 import android.os.Bundle
+import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
-import com.example.composebytutorialv2.navigation.Router
-import com.example.composebytutorialv2.navigation.RouterScreen
+import com.example.composebytutorialv2.navigation.section1And2.Router
+import com.example.composebytutorialv2.navigation.section1And2.RouterScreen
 import com.example.composebytutorialv2.ui.screen.section2.NotesViewModel
 import com.example.composebytutorialv2.ui.screen.section3.RedditApp
 import com.example.composebytutorialv2.ui.screen.section3.RedditViewModel
@@ -16,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @ExperimentalMaterialApi
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : ComponentActivity() {
 
     private val noteViewModel by viewModels<NotesViewModel>()
     private val redditViewModel by viewModels<RedditViewModel>()

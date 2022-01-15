@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.composebytutorialv2.data.model.section2.NoteModel
 import com.example.composebytutorialv2.data.repository.Repository
-import com.example.composebytutorialv2.navigation.Router
-import com.example.composebytutorialv2.navigation.Screen
+import com.example.composebytutorialv2.navigation.section1And2.Router
+import com.example.composebytutorialv2.navigation.section1And2.Screen
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow

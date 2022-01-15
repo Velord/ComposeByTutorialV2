@@ -19,9 +19,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.composebytutorialv2.R
-import com.example.composebytutorialv2.navigation.Router
-import com.example.composebytutorialv2.navigation.Screen
 import com.example.composebytutorialv2.navigation.section1And2.BackButtonHandler
+import com.example.composebytutorialv2.navigation.section1And2.Router
+import com.example.composebytutorialv2.navigation.section1And2.Screen
 import com.example.composebytutorialv2.ui.component.section1.chapter4.GridView
 import com.google.accompanist.flowlayout.FlowMainAxisAlignment
 import com.google.accompanist.flowlayout.FlowRow

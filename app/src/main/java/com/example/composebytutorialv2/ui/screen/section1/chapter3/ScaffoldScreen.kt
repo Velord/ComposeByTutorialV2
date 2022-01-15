@@ -10,9 +10,9 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.composebytutorialv2.R
-import com.example.composebytutorialv2.navigation.Router
-import com.example.composebytutorialv2.navigation.Screen
 import com.example.composebytutorialv2.navigation.section1And2.BackButtonHandler
+import com.example.composebytutorialv2.navigation.section1And2.Router
+import com.example.composebytutorialv2.navigation.section1And2.Screen
 import com.example.composebytutorialv2.section1.chapter3.ColumnScreen
 import com.example.composebytutorialv2.section1.chapter3.RowScreen
 import kotlinx.coroutines.CoroutineScope

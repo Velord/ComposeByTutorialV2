@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.res.stringResource
 import com.example.composebytutorialv2.R
-import com.example.composebytutorialv2.navigation.Screen
+import com.example.composebytutorialv2.navigation.section1And2.Screen
 import com.example.composebytutorialv2.ui.component.section2.chapter5.appDrawer.AppDrawer
 import com.example.composebytutorialv2.ui.screen.section2.NotesViewModel
 import com.example.composebytutorialv2.ui.screen.section2.chapter7.NoteCollectionScreen

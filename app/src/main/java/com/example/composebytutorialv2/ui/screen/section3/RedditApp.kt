@@ -18,6 +18,7 @@ import com.example.composebytutorialv2.navigation.section3.RedditScreen
 import com.example.composebytutorialv2.ui.component.section3.chapter9.appDrawer.RedditAppDrawerView
 import com.example.composebytutorialv2.ui.screen.section3.chapter10.HomeScreen
 import com.example.composebytutorialv2.ui.screen.section3.chapter10.SubredditCollectionScreen
+import com.example.composebytutorialv2.ui.screen.section3.chapter11.ChooseCommunityScreen
 import com.example.composebytutorialv2.ui.theme.section3.RedditTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -104,7 +105,8 @@ private fun MainScreenContainer(
         when (screenState.value) {
             RedditScreen.Home -> HomeScreen(viewModel)
             RedditScreen.SubscriptionList -> SubredditCollectionScreen()
-//            RedditScreen.NewPost -> AddScreen()
+            RedditScreen.ChooseCommunity -> ChooseCommunityScreen(viewModel)
+            RedditScreen.NewPost -> ChooseCommunityScreen(viewModel)
 //            RedditScreen.MyProfile -> Profile()
         }
     }

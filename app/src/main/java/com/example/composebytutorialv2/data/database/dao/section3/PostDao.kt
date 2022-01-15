@@ -23,4 +23,7 @@ interface PostDao {
 
     @Insert
     fun insertAll(vararg PostDbModels: PostDbModel)
+
+    @Query("SELECT DISTINCT subreddit FROM PostDbModel")
+    fun getAllSubreddits(): List<String>
 }

@@ -1,4 +1,4 @@
-package com.example.composebytutorialv2.navigation
+package com.example.composebytutorialv2.navigation.section1And2
 
 import androidx.compose.animation.Crossfade
 import androidx.compose.material.ExperimentalMaterialApi
