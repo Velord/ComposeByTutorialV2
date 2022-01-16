@@ -122,6 +122,15 @@
     <string name="plus_icon">Plus Icon</string>
     <string name="join">Join</string>
     <string name="you_have_joined_this_community">You have joined this community</string>
+    <string name="start_chatting">Start chatting</string>
+    <string name="star_icon">Star Icon</string>
+    <string name="trending_today">Trending Today</string>
+
+
+    
+
+
+
 
 
 </resources>
