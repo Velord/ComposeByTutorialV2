@@ -7,4 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="heliotrope_gradient">#A166FF</color>
+    <color name="brink_pink">#FF6883</color>
+    <color name="coral">#FF8742</color>
 </resources>
