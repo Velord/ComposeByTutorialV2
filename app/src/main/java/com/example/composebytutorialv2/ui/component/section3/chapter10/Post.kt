@@ -14,10 +14,14 @@ import com.example.composebytutorialv2.R
 import com.example.composebytutorialv2.data.model.section3.PostModel
 
 @Composable
-fun PostView(post: PostModel, content: @Composable () -> Unit = {}) {
+fun PostView(
+    post: PostModel,
+    onJoinButtonClick: (Boolean) -> Unit = {},
+    content: @Composable () -> Unit = {}
+) {
     Card(shape = MaterialTheme.shapes.large) {
         Column(Modifier.padding(horizontal = 8.dp)) {
-            HeaderView(post)
+            HeaderView(post, onJoinButtonClick)
             Spacer(Modifier.height(4.dp))
             content()
             Spacer(Modifier.height(8.dp))

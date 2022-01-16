@@ -24,24 +24,37 @@ import androidx.compose.ui.unit.sp
 import com.example.composebytutorialv2.R
 import com.example.composebytutorialv2.data.model.section3.PostModel
 import com.example.composebytutorialv2.data.model.section3.PostModel.Companion.DEFAULT_POST
+import com.example.composebytutorialv2.ui.component.section3.chapter12.JoinButtonView
 
 @Composable
-fun TextPost(post: PostModel) {
-    PostView(post) {
+fun TextPost(
+    post: PostModel,
+    onJoinButtonClick: (Boolean) -> Unit = {}
+) {
+    PostView(post, onJoinButtonClick) {
         TextContent(post.text)
     }
 }
 
 @Composable
-fun ImagePost(post: PostModel) {
-    PostView(post) {
+fun ImagePost(
+    post: PostModel,
+    onJoinButtonClick: (Boolean) -> Unit = {}
+) {
+    PostView(post, onJoinButtonClick) {
         ImageContent(post.image ?: R.drawable.baseline_assignment_late_purple_300_48dp)
     }
 }
 
 @Composable
-fun HeaderView(post: PostModel) {
-    Row(Modifier.padding(start = 16.dp)) {
+fun HeaderView(
+    post: PostModel,
+    onJoinButtonClick: (Boolean) -> Unit = {}
+) {
+    Row(
+        modifier = Modifier.padding(start = 16.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
         Image(
             ImageVector.vectorResource(id = R.drawable.sharp_home_blue_600_48dp),
             contentDescription = stringResource(id = R.string.subreddits),
@@ -62,6 +75,8 @@ fun HeaderView(post: PostModel) {
                 color = Color.Gray
             )
         }
+        Spacer(Modifier.width(4.dp))
+        JoinButtonView(onJoinButtonClick)
         MoreActionsMenu()
     }
     Title(text = post.title)

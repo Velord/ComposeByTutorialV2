@@ -119,6 +119,9 @@
     <string name="communities">Communities</string>
     <string name="trophies">TROPHIES</string>
     <string name="choose_community">Choose community</string>
+    <string name="plus_icon">Plus Icon</string>
+    <string name="join">Join</string>
+    <string name="you_have_joined_this_community">You have joined this community</string>
 
 
 </resources>
