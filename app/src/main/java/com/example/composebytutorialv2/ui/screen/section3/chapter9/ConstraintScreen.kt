@@ -16,7 +16,7 @@ fun ConstraintScreen() {
     ConstraintLayout {
         val (passwordInput, eyeIcon) = createRefs()
         Icon(
-            imageVector = ImageVector.vectorResource(id = R.drawable.outline_remove_red_eye_red_700_48dp),
+            imageVector = ImageVector.vectorResource(id = R.drawable.baseline_arrow_circle_down_red_100_24dp),
             contentDescription = stringResource(id = R.string.eye),
             modifier = Modifier.constrainAs(eyeIcon){}
         )

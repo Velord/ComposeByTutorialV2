@@ -45,7 +45,7 @@ private fun ToastContent() {
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
-                imageVector = ImageVector.vectorResource(id = R.drawable.outline_airplane_ticket_red_400_48dp),
+                imageVector = ImageVector.vectorResource(id = R.drawable.outline_gavel_black_24dp),
                 contentDescription = stringResource(id = R.string.subreddit_icon)
             )
             Spacer(modifier = Modifier.width(8.dp))

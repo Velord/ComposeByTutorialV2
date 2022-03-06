@@ -47,7 +47,7 @@ data class PostDbModel(
                 23,
                 1, System.currentTimeMillis(),
                 false,
-                image = R.drawable.sharp_home_blue_600_48dp
+                image = R.drawable.baseline_accessibility_new_black_48dp
             ),
             PostDbModel(
                 3,

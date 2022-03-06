@@ -29,7 +29,7 @@ private fun ChainScreen() {
             onClick = {},
         ) {
             Icon(
-                imageVector = ImageVector.vectorResource(id = R.drawable.outline_shield_moon_deep_purple_a100_48dp),
+                imageVector = ImageVector.vectorResource(id = R.drawable.baseline_account_balance_wallet_pink_a200_48dp),
                 contentDescription = "",
                 tint = Color.Blue
             )
@@ -45,7 +45,7 @@ private fun ChainScreen() {
             onClick = {},
         ) {
             Icon(
-                imageVector = ImageVector.vectorResource(id = R.drawable.outline_remove_red_eye_red_700_48dp),
+                imageVector = ImageVector.vectorResource(id = R.drawable.outline_gavel_red_500_24dp),
                 contentDescription = "",
                 tint = Color.Red
             )

@@ -56,7 +56,7 @@ fun HeaderView(
         verticalAlignment = Alignment.CenterVertically
     ) {
         Image(
-            ImageVector.vectorResource(id = R.drawable.sharp_home_blue_600_48dp),
+            ImageVector.vectorResource(id = R.drawable.baseline_arrow_right_alt_deep_purple_800_48dp),
             contentDescription = stringResource(id = R.string.subreddits),
             Modifier
                 .size(40.dp)
@@ -100,7 +100,7 @@ fun MoreActionsMenu() {
             onDismissRequest = { expanded = false }
         ) {
             CustomDropdownMenuItem(
-                vectorResourceId = R.drawable.outline_remove_red_eye_red_700_48dp,
+                vectorResourceId = R.drawable.baseline_account_balance_red_100_48dp,
                 text = stringResource(id = R.string.save)
             )
         }
@@ -177,17 +177,17 @@ fun PostActions(post: PostModel) {
     ) {
         VotingActionView(text = post.likes, upVoteAction = {}, downVoteAction = {})
         PostAction(
-            vectorResourceId = R.drawable.baseline_comment_bank_red_300_48dp,
+            vectorResourceId = R.drawable.baseline_assignment_ind_red_100_24dp,
             text = post.comments,
             onClickAction = {}
         )
         PostAction(
-            vectorResourceId = R.drawable.baseline_mobile_screen_share_blue_400_48dp,
+            vectorResourceId = R.drawable.baseline_account_box_blue_a200_48dp,
             text = stringResource(R.string.share),
             onClickAction = {}
         )
         PostAction(
-            vectorResourceId = R.drawable.baseline_emoji_events_cyan_50_48dp,
+            vectorResourceId = R.drawable.baseline_arrow_right_alt_deep_purple_800_48dp,
             text = stringResource(R.string.award),
             onClickAction = {}
         )
@@ -218,7 +218,7 @@ fun PostAction(
 @Composable
 fun PostActionPreview() {
     PostAction(
-        vectorResourceId = R.drawable.baseline_emoji_events_cyan_50_48dp,
+        vectorResourceId = R.drawable.baseline_assignment_late_purple_300_48dp,
         text = stringResource(R.string.award),
         onClickAction = {}
     )

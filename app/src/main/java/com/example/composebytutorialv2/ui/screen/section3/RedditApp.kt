@@ -120,14 +120,14 @@ private fun BottomNavigationComponent(
     var selectedItem by remember { mutableStateOf(0) }
 
     val items = listOf(
-        NavigationItem(0, R.drawable.sharp_home_blue_600_48dp, R.string.home_icon, RedditScreen.Home),
+        NavigationItem(0, R.drawable.round_accessibility_red_400_48dp, R.string.home_icon, RedditScreen.Home),
         NavigationItem(
             1,
-            R.drawable.round_list_green_700_48dp,
+            R.drawable.baseline_account_box_blue_a200_48dp,
             R.string.subscription_icon,
             RedditScreen.SubscriptionList
         ),
-        NavigationItem(2, R.drawable.twotone_addchart_red_400_48dp, R.string.post_icon, RedditScreen.NewPost),
+        NavigationItem(2, R.drawable.outline_gavel_red_500_24dp, R.string.post_icon, RedditScreen.NewPost),
     )
     BottomNavigation(modifier = modifier) {
         items.forEach {

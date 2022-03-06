@@ -40,7 +40,7 @@ val trendingItems = listOf(
     ),
     TrendingTopicModel(
         "DataStore Tutorial",
-        R.drawable.baseline_emoji_events_cyan_50_48dp
+        R.drawable.baseline_assignment_late_purple_300_48dp
     ),
     TrendingTopicModel(
         "Android Animations",

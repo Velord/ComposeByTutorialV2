@@ -138,7 +138,7 @@ private fun RedditAppDrawerFooter(modifier: Modifier = Modifier) {
 
         Icon(
             contentDescription = stringResource(R.string.change_theme),
-            imageVector = ImageVector.vectorResource(id = R.drawable.outline_shield_moon_deep_purple_a100_48dp),
+            imageVector = ImageVector.vectorResource(id = R.drawable.sharp_perm_contact_calendar_indigo_600_24dp),
             tint = colors.primaryVariant,
             modifier = modifier.clickable { RedditSettings.switchTheme() }
                 .constrainAs(darkModeSwitcher) {

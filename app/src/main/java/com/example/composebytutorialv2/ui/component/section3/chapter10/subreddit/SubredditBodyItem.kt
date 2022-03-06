@@ -34,7 +34,7 @@ fun SubredditIconView(modifier: Modifier) {
     Icon(
         modifier = modifier,
         tint = Color.LightGray,
-        imageVector = ImageVector.vectorResource(id = R.drawable.baseline_airplanemode_active_purple_a700_48dp),
+        imageVector = ImageVector.vectorResource(id = R.drawable.baseline_assignment_ind_red_100_24dp),
         contentDescription = stringResource(id = R.string.subreddit_icon),
     )
 }

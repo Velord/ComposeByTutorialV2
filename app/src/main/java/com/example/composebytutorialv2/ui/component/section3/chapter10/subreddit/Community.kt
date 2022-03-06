@@ -33,7 +33,7 @@ fun CommunityView(
             .clickable(onClick = onCommunityClick)
     ) {
         Image(
-            imageVector = ImageVector.vectorResource(id = R.drawable.baseline_airplanemode_active_purple_a700_48dp),
+            imageVector = ImageVector.vectorResource(id = R.drawable.outline_perm_contact_calendar_black_24dp),
             contentDescription = stringResource(id = R.string.community_icon),
             modifier = modifier.size(24.dp).align(Alignment.CenterVertically)
         )
